@@ -1,0 +1,118 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/12/2021 4:57:40 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-KFDCPNJ"
+  DTS:CreatorName="DESKTOP-KFDCPNJ\gofr1"
+  DTS:DTSID="{4BB4257C-13A0-4FD5-8C62-994A2E5CB189}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{F9D49A7E-9551-445D-9225-B7D930E7683D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[myownsynapseworkspace.sql.azuresynapse.net.mysynapsepool.sqladminuser]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{C3938524-B7AF-4981-A434-58E39979E252}"
+      DTS:ObjectName="myownsynapseworkspace.sql.azuresynapse.net.mysynapsepool.sqladminuser">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=myownsynapseworkspace.sql.azuresynapse.net;User ID=sqladminuser;Initial Catalog=mysynapsepool;Persist Security Info=True;Application Name=SSIS-Package1-{C3938524-B7AF-4981-A434-58E39979E252}myownsynapseworkspace.sql.azuresynapse.net.mysynapsepool.sqladminuser;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2Nc6Lls9SUKxXoUWc4A8cQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAHJSMud5fhP/lyt4OW7XjtCbBumxfCBZcHGxF0wQHKkAAAAAAOgAAAAAIAACAAAACnnhsYiv2b5XpAbdq2j1/F8H8dh1z5QacRnkUab2n6bSAAAAAC2b38/0v/25bmHVs9WvE1AfInOCqLK/lO/Gxi9Ku2S0AAAACWEE5pUfjnHM2c6DXd0tEkCUZqZU85rr8NfXYTB/BjFxmNpV+UCfZ9LejhOmhq/LibZR6ZWhSRurpQYkEJXfCa</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSIS Connection Manager for Azure Storage 1]"
+      DTS:CreationName="AzureStorage"
+      DTS:DTSID="{EF179DB7-CBE8-4BF4-8EEE-0D23EC9CEBEC}"
+      DTS:ObjectName="SSIS Connection Manager for Azure Storage 1">
+      <DTS:ObjectData>
+        <AzureStorageConnectionManager
+          ConnectionString="AccountName=mainstorageaccountv2;DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;"
+          ConnectByProxy="False">
+          <AccountKey
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2Nc6Lls9SUKxXoUWc4A8cQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABVbch/BqiXZ3XR8SGmuk/WefapY7FXazwV/WgRQP1obwAAAAAOgAAAAAIAACAAAABNARe7PJz8JWpAw2cC+KstDFkD3vw/62+8E7Izh+Myg8AAAABMBF8tWULs8Yktxgv1FSuKWVlszDMnskIXH/flR8JWNhp07wZwj8KWsc5lgT782Z3AAn1zYmx5QWO/8j1i6hhE6Z1PQOJ8xZ8y0IdvxQzcHlJSd55pMLGN2y7Bzku3tPKT4n9jk7G7gM4iiJ4IwyUweMKClBa39MIvNDREkPr8emQeSp5YKEGlwMqXLpRe4L2y4y2NWteFJLOYmWH1/70ca6UVTEYqf6VQVjuvOwecSWJFrpoRcgsCz3E5o9lXgUdAAAAAPOiF9S6rO3dT3VzbHUqVYzzAGkiInoFKMAqjrh61igsrhWtqvYOQPcp7dKkU6UIY/I3SnFSPax2x7ZRhQqMn4g</AccountKey>
+        </AzureStorageConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\TestDataUpload"
+      DTS:CreationName="DwUploadTask"
+      DTS:Description="Azure SQL DW Upload Task"
+      DTS:DTSID="{C8328867-510F-4FEA-BAD2-4D08E218AE5C}"
+      DTS:ExecutableType="DwUploadTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TestDataUpload"
+      DTS:TaskContact="Azure SQL DW Upload Task; (C) Microsoft Corporation; All Rights Reserved"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <CopyToDwTask
+          SourceType="FileSystem"
+          LocalDirectory="C:\DataIn"
+          Recursively="False"
+          FileName="test.csv"
+          RowDelimiterType="CRLF"
+          ColumnDelimiter=";"
+          IsFirstRowHeader="True"
+          BlobContainer="my-csv"
+          RetainFiles="True"
+          CompressionType="GZIP"
+          CompressionLevel="Optimal"
+          BlobConnectionId="{EF179DB7-CBE8-4BF4-8EEE-0D23EC9CEBEC}"
+          DwConnectionId="{C3938524-B7AF-4981-A434-58E39979E252}"
+          TableName="&quot;ssis_dataload_test&quot;"
+          TableDistribution="ROUND_ROBIN"
+          OperationType="Create"
+          SourceColumnNames="ProductKey&#xA;OrderDateKey&#xA;DueDateKey&#xA;ShipDateKey&#xA;CustomerKey&#xA;PromotionKey&#xA;CurrencyKey&#xA;SalesTerritoryKey&#xA;SalesOrderNumber&#xA;SalesOrderLineNumber&#xA;RevisionNumber&#xA;OrderQuantity&#xA;UnitPrice&#xA;ExtendedAmount&#xA;UnitPriceDiscountPct&#xA;DiscountAmount&#xA;ProductStandardCost&#xA;TotalProductCost&#xA;SalesAmount&#xA;TaxAmt&#xA;Freight&#xA;CarrierTrackingNumber&#xA;CustomerPONumber&#xA;OrderDate&#xA;DueDate&#xA;ShipDate&#xA;"
+          SourceColumnTypes="VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;"
+          SourceColumnWidths="30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;"
+          SourceColumnPrecisions="0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;"
+          SourceColumnScales="0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;"
+          DestinationColumnNames="ProductKey&#xA;OrderDateKey&#xA;DueDateKey&#xA;ShipDateKey&#xA;CustomerKey&#xA;PromotionKey&#xA;CurrencyKey&#xA;SalesTerritoryKey&#xA;SalesOrderNumber&#xA;SalesOrderLineNumber&#xA;RevisionNumber&#xA;OrderQuantity&#xA;UnitPrice&#xA;ExtendedAmount&#xA;UnitPriceDiscountPct&#xA;DiscountAmount&#xA;ProductStandardCost&#xA;TotalProductCost&#xA;SalesAmount&#xA;TaxAmt&#xA;Freight&#xA;CarrierTrackingNumber&#xA;CustomerPONumber&#xA;OrderDate&#xA;DueDate&#xA;ShipDate&#xA;"
+          DestinationColumnTypes="VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;"
+          DestinationColumnWidths="30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;"
+          DestinationColumnPrecisions="0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;"
+          DestinationColumnScales="0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;"
+          MappedDestinationColumnIndex="0&#xA;1&#xA;2&#xA;3&#xA;4&#xA;5&#xA;6&#xA;7&#xA;8&#xA;9&#xA;10&#xA;11&#xA;12&#xA;13&#xA;14&#xA;15&#xA;16&#xA;17&#xA;18&#xA;19&#xA;20&#xA;21&#xA;22&#xA;23&#xA;24&#xA;25&#xA;"
+          SQL="CREATE DATABASE SCOPED CREDENTIAL &quot;&lt;credential_name&gt;&quot;&#xA;WITH IDENTITY = '&lt;blob_account_name&gt;',&#xA;SECRET = '&lt;blob_account_key&gt;';&#xA;CREATE EXTERNAL DATA SOURCE &quot;&lt;external_data_source_name&gt;&quot;&#xA;WITH (&#xA;    TYPE = HADOOP,&#xA;    LOCATION = 'wasbs://&lt;blob_container&gt;@&lt;blob_account_name&gt;.blob.&lt;blob_endpoint_suffix&gt;',&#xA;    CREDENTIAL = &quot;&lt;credential_name&gt;&quot;&#xA;);&#xA;CREATE EXTERNAL FILE FORMAT &quot;&lt;external_file_format_name&gt;&quot;&#xA;WITH (&#xA;    FORMAT_TYPE = DELIMITEDTEXT,&#xA;    FORMAT_OPTIONS (&#xA;        FIELD_TERMINATOR = '&lt;column_delimiter&gt;'&#xA;    ),&#xA;    DATA_COMPRESSION = '&lt;data_compression&gt;'&#xA;);&#xA;CREATE EXTERNAL TABLE &quot;&lt;external_table_name&gt;&quot; (&#xA;    &quot;ProductKey&quot; varchar(30),&#xA;    &quot;OrderDateKey&quot; varchar(30),&#xA;    &quot;DueDateKey&quot; varchar(30),&#xA;    &quot;ShipDateKey&quot; varchar(30),&#xA;    &quot;CustomerKey&quot; varchar(30),&#xA;    &quot;PromotionKey&quot; varchar(30),&#xA;    &quot;CurrencyKey&quot; varchar(30),&#xA;    &quot;SalesTerritoryKey&quot; varchar(30),&#xA;    &quot;SalesOrderNumber&quot; varchar(30),&#xA;    &quot;SalesOrderLineNumber&quot; varchar(30),&#xA;    &quot;RevisionNumber&quot; varchar(30),&#xA;    &quot;OrderQuantity&quot; varchar(30),&#xA;    &quot;UnitPrice&quot; varchar(30),&#xA;    &quot;ExtendedAmount&quot; varchar(30),&#xA;    &quot;UnitPriceDiscountPct&quot; varchar(30),&#xA;    &quot;DiscountAmount&quot; varchar(30),&#xA;    &quot;ProductStandardCost&quot; varchar(30),&#xA;    &quot;TotalProductCost&quot; varchar(30),&#xA;    &quot;SalesAmount&quot; varchar(30),&#xA;    &quot;TaxAmt&quot; varchar(30),&#xA;    &quot;Freight&quot; varchar(30),&#xA;    &quot;CarrierTrackingNumber&quot; varchar(30),&#xA;    &quot;CustomerPONumber&quot; varchar(30),&#xA;    &quot;OrderDate&quot; varchar(30),&#xA;    &quot;DueDate&quot; varchar(30),&#xA;    &quot;ShipDate&quot; varchar(30)&#xA;) WITH (&#xA;    LOCATION = '&lt;blob_directory&gt;',&#xA;    DATA_SOURCE = &quot;&lt;external_data_source_name&gt;&quot;,&#xA;    FILE_FORMAT = &quot;&lt;external_file_format_name&gt;&quot;&#xA;);&#xA;CREATE TABLE &quot;ssis_dataload_test&quot; (&#xA;    &quot;ProductKey&quot;,&#xA;    &quot;OrderDateKey&quot;,&#xA;    &quot;DueDateKey&quot;,&#xA;    &quot;ShipDateKey&quot;,&#xA;    &quot;CustomerKey&quot;,&#xA;    &quot;PromotionKey&quot;,&#xA;    &quot;CurrencyKey&quot;,&#xA;    &quot;SalesTerritoryKey&quot;,&#xA;    &quot;SalesOrderNumber&quot;,&#xA;    &quot;SalesOrderLineNumber&quot;,&#xA;    &quot;RevisionNumber&quot;,&#xA;    &quot;OrderQuantity&quot;,&#xA;    &quot;UnitPrice&quot;,&#xA;    &quot;ExtendedAmount&quot;,&#xA;    &quot;UnitPriceDiscountPct&quot;,&#xA;    &quot;DiscountAmount&quot;,&#xA;    &quot;ProductStandardCost&quot;,&#xA;    &quot;TotalProductCost&quot;,&#xA;    &quot;SalesAmount&quot;,&#xA;    &quot;TaxAmt&quot;,&#xA;    &quot;Freight&quot;,&#xA;    &quot;CarrierTrackingNumber&quot;,&#xA;    &quot;CustomerPONumber&quot;,&#xA;    &quot;OrderDate&quot;,&#xA;    &quot;DueDate&quot;,&#xA;    &quot;ShipDate&quot;&#xA;) WITH (&#xA;    DISTRIBUTION = ROUND_ROBIN&#xA;) AS&#xA;SELECT&#xA;    &quot;ProductKey&quot;,&#xA;    &quot;OrderDateKey&quot;,&#xA;    &quot;DueDateKey&quot;,&#xA;    &quot;ShipDateKey&quot;,&#xA;    &quot;CustomerKey&quot;,&#xA;    &quot;PromotionKey&quot;,&#xA;    &quot;CurrencyKey&quot;,&#xA;    &quot;SalesTerritoryKey&quot;,&#xA;    &quot;SalesOrderNumber&quot;,&#xA;    &quot;SalesOrderLineNumber&quot;,&#xA;    &quot;RevisionNumber&quot;,&#xA;    &quot;OrderQuantity&quot;,&#xA;    &quot;UnitPrice&quot;,&#xA;    &quot;ExtendedAmount&quot;,&#xA;    &quot;UnitPriceDiscountPct&quot;,&#xA;    &quot;DiscountAmount&quot;,&#xA;    &quot;ProductStandardCost&quot;,&#xA;    &quot;TotalProductCost&quot;,&#xA;    &quot;SalesAmount&quot;,&#xA;    &quot;TaxAmt&quot;,&#xA;    &quot;Freight&quot;,&#xA;    &quot;CarrierTrackingNumber&quot;,&#xA;    &quot;CustomerPONumber&quot;,&#xA;    &quot;OrderDate&quot;,&#xA;    &quot;DueDate&quot;,&#xA;    &quot;ShipDate&quot;&#xA;FROM &quot;&lt;external_table_name&gt;&quot;;&#xA;DROP EXTERNAL TABLE &quot;&lt;external_table_name&gt;&quot;;&#xA;DROP EXTERNAL FILE FORMAT &quot;&lt;external_file_format_name&gt;&quot;;&#xA;DROP EXTERNAL DATA SOURCE &quot;&lt;external_data_source_name&gt;&quot;;&#xA;DROP DATABASE SCOPED CREDENTIAL &quot;&lt;credential_name&gt;&quot;;"
+          SQLTimeout="0"
+          UnlockSQL="False" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="159,42"
+          Id="Package\TestDataUpload"
+          TopLeft="257,104" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
