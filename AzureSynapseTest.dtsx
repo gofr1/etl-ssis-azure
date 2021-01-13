@@ -1,48 +1,48 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="1/12/2021 4:57:40 PM"
+  DTS:CreationDate="1/13/2021 2:17:43 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-KFDCPNJ"
   DTS:CreatorName="DESKTOP-KFDCPNJ\gofr1"
-  DTS:DTSID="{4BB4257C-13A0-4FD5-8C62-994A2E5CB189}"
+  DTS:DTSID="{A59C7812-A231-4F18-A272-2D85B9C68460}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.150"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{F9D49A7E-9551-445D-9225-B7D930E7683D}">
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{49255772-2FB5-48F6-AB2E-F70C3D9A3F1E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[myownsynapseworkspace.sql.azuresynapse.net.mysynapsepool.sqladminuser]"
       DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{C3938524-B7AF-4981-A434-58E39979E252}"
+      DTS:DTSID="{AC18ED49-CB42-40E5-9908-A55E770076DC}"
       DTS:ObjectName="myownsynapseworkspace.sql.azuresynapse.net.mysynapsepool.sqladminuser">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=myownsynapseworkspace.sql.azuresynapse.net;User ID=sqladminuser;Initial Catalog=mysynapsepool;Persist Security Info=True;Application Name=SSIS-Package1-{C3938524-B7AF-4981-A434-58E39979E252}myownsynapseworkspace.sql.azuresynapse.net.mysynapsepool.sqladminuser;">
+          DTS:ConnectionString="Data Source=myownsynapseworkspace.sql.azuresynapse.net;User ID=sqladminuser;Initial Catalog=mysynapsepool;Persist Security Info=True;Application Name=SSIS-Package1-{AC18ED49-CB42-40E5-9908-A55E770076DC}myownsynapseworkspace.sql.azuresynapse.net.mysynapsepool.sqladminuser;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2Nc6Lls9SUKxXoUWc4A8cQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAHJSMud5fhP/lyt4OW7XjtCbBumxfCBZcHGxF0wQHKkAAAAAAOgAAAAAIAACAAAACnnhsYiv2b5XpAbdq2j1/F8H8dh1z5QacRnkUab2n6bSAAAAAC2b38/0v/25bmHVs9WvE1AfInOCqLK/lO/Gxi9Ku2S0AAAACWEE5pUfjnHM2c6DXd0tEkCUZqZU85rr8NfXYTB/BjFxmNpV+UCfZ9LejhOmhq/LibZR6ZWhSRurpQYkEJXfCa</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2Nc6Lls9SUKxXoUWc4A8cQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD3MYDqOioAHGN8Y3YC1aWtGfITPFlBklQMtKi5T5VaMQAAAAAOgAAAAAIAACAAAADYGGbp/ukZs5UQs0XL3IsUQctGtYopVIZQ1iHZTIvVjCAAAACRNJ8fjrkjMc1N+hNXWYaLYOkSGuTltPy5YH/klN1nRUAAAAALRrscUQZP93E9RbWu0r/+UcqxCP3JHpiy3YR2IthtdDxcrQR3ElSjU0to0/sJ22TgImVayMkFwGp9fOVIGUmL</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[SSIS Connection Manager for Azure Storage 1]"
+      DTS:refId="Package.ConnectionManagers[SSIS Connection Manager for Azure Storage]"
       DTS:CreationName="AzureStorage"
-      DTS:DTSID="{EF179DB7-CBE8-4BF4-8EEE-0D23EC9CEBEC}"
-      DTS:ObjectName="SSIS Connection Manager for Azure Storage 1">
+      DTS:DTSID="{50B3F0E8-0D8F-4235-A5AF-AB7EA316E49B}"
+      DTS:ObjectName="SSIS Connection Manager for Azure Storage">
       <DTS:ObjectData>
         <AzureStorageConnectionManager
           ConnectionString="AccountName=mainstorageaccountv2;DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;"
           ConnectByProxy="False">
           <AccountKey
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2Nc6Lls9SUKxXoUWc4A8cQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABVbch/BqiXZ3XR8SGmuk/WefapY7FXazwV/WgRQP1obwAAAAAOgAAAAAIAACAAAABNARe7PJz8JWpAw2cC+KstDFkD3vw/62+8E7Izh+Myg8AAAABMBF8tWULs8Yktxgv1FSuKWVlszDMnskIXH/flR8JWNhp07wZwj8KWsc5lgT782Z3AAn1zYmx5QWO/8j1i6hhE6Z1PQOJ8xZ8y0IdvxQzcHlJSd55pMLGN2y7Bzku3tPKT4n9jk7G7gM4iiJ4IwyUweMKClBa39MIvNDREkPr8emQeSp5YKEGlwMqXLpRe4L2y4y2NWteFJLOYmWH1/70ca6UVTEYqf6VQVjuvOwecSWJFrpoRcgsCz3E5o9lXgUdAAAAAPOiF9S6rO3dT3VzbHUqVYzzAGkiInoFKMAqjrh61igsrhWtqvYOQPcp7dKkU6UIY/I3SnFSPax2x7ZRhQqMn4g</AccountKey>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2Nc6Lls9SUKxXoUWc4A8cQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABYzx0+nLSXHJP8fX/O0ZF006G2mCNh3qaUNwWErp4PYQAAAAAOgAAAAAIAACAAAACYsksFQTPxe9dhwJ1UxJV+8MeloQX0jlE76RnUxAHnucAAAADkBJeh01SM10d51WAuge7H7htv4zALs2rRIs+os0rVxrr1naAjpbQUfdOd7tH3EPLtLegQlSPr6NNT7Thmdct64sz9cx/bPW1iuZnn6oVcbaTTHoiww59Y7mQBDYQyDw4cO9+9vlmFENhtSphUqBFyj76TAMJy2p5MW8lGxc/tt5tgpcer9NK9lVu7GbPNF04Phefyv5iVOZR4FlVVJpnaRIYXiPiAg07lWaO/3c4diBqlsyW78a3axFInChEn0zdAAAAADs2C4Nn67NNqjNwDTefrXQUQMFVt++a0N0MFh2Z6mM7+8fYYpZpJFnJZF6XscGVTFjxLSQXu8P8bfwx8Dbq/SA</AccountKey>
         </AzureStorageConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -53,7 +53,7 @@
       DTS:refId="Package\TestDataUpload"
       DTS:CreationName="DwUploadTask"
       DTS:Description="Azure SQL DW Upload Task"
-      DTS:DTSID="{C8328867-510F-4FEA-BAD2-4D08E218AE5C}"
+      DTS:DTSID="{03d79905-415e-4a16-889b-7bfe6345e6af}"
       DTS:ExecutableType="DwUploadTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="TestDataUpload"
@@ -73,8 +73,8 @@
           RetainFiles="True"
           CompressionType="GZIP"
           CompressionLevel="Optimal"
-          BlobConnectionId="{EF179DB7-CBE8-4BF4-8EEE-0D23EC9CEBEC}"
-          DwConnectionId="{C3938524-B7AF-4981-A434-58E39979E252}"
+          BlobConnectionId="{50B3F0E8-0D8F-4235-A5AF-AB7EA316E49B}"
+          DwConnectionId="{AC18ED49-CB42-40E5-9908-A55E770076DC}"
           TableName="&quot;ssis_dataload_test&quot;"
           TableDistribution="ROUND_ROBIN"
           OperationType="Create"
@@ -110,7 +110,7 @@
         <NodeLayout
           Size="159,42"
           Id="Package\TestDataUpload"
-          TopLeft="257,104" />
+          TopLeft="342,168" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
